@@ -5,11 +5,11 @@ Created on Sun Mar 26 03:14:01 2023
 
 @author: green-machine
 
-Subproject VII. MSpline
+Subproject VII. Lash-Up Spline
 """
 
 # =============================================================================
-# Makeshift Splines
+# Lash-Up Splines
 # =============================================================================
 # =============================================================================
 # Fixed Assets Turnover
@@ -19,20 +19,20 @@ df = stockpile_cobb_douglas().pipe(transform_cobb_douglas,
 # =============================================================================
 # Option 1
 # =============================================================================
-df.pipe(run_m_spline, kernel=m_spline_lls)
+df.pipe(run_lash_up_spline, kernel=lash_up_spline_lls)
 # =============================================================================
 # Option 2.1.1
 # =============================================================================
-df.pipe(run_m_spline, kernel=m_spline_ea)
+df.pipe(run_lash_up_spline, kernel=lash_up_spline_ea)
 # =============================================================================
 # Option 2.1.2
 # =============================================================================
-df.pipe(run_m_spline, kernel=m_spline_eb)
+df.pipe(run_lash_up_spline, kernel=lash_up_spline_eb)
 # =============================================================================
 # Option 2.2.1
 # =============================================================================
-df.pipe(run_m_spline, kernel=m_spline_la)
+df.pipe(run_lash_up_spline, kernel=lash_up_spline_la)
 # =============================================================================
 # Option 2.2.2
 # =============================================================================
-df.pipe(run_m_spline, kernel=m_spline_lb)
+df.pipe(run_lash_up_spline, kernel=lash_up_spline_lb)

@@ -27,7 +27,10 @@ plotSpecialLabels('dataset_douglas.zip', 21, 90, 115,
                   3, 'Birth Rates by Countries', 'Births Rate Per 1000 People', TITLES_EUR)
 plt.show()
 
-# D:\projectUSADouglas0001.py
+# =============================================================================
+# projectUSADouglas0001.py
+# =============================================================================
+
 
 
 def plot_douglas(archive_name, num, start_at, stop, step, titles, measures):
@@ -79,7 +82,10 @@ plot_douglas('dataset_douglas.zip', 20, 121, 124, 1, TITLES[19], 'Millions of Do
 plot_douglas_labels('dataset_douglas.zip', 21, 90, 115, 3, TITLES[20], 'Births Rate Per 1000 People', TITLES_EUR)
 plt.show()
 
-# D:\projectUSAKendrick0001.py
+# =============================================================================
+# projectUSAKendrick0001.py
+# =============================================================================
+
 
 
 _MAP_SERIES = pull_series_ids_description('dataset_usa_kendrick.zip')
@@ -102,7 +108,10 @@ plot_douglas('dataset_usa_kendrick.zip', 10, 84, 96, 1, TITLES[9], 'Dimension')
 plot_douglas('dataset_usa_kendrick.zip', 11, 96, 100, 1, TITLES[10], 'Dimension')
 plot_douglas('dataset_usa_kendrick.zip', 12, 100, 111, 1, TITLES[11], 'Dimension')
 plt.show()
-# D:\projectUSAKendrick0002.py
+# =============================================================================
+# projectUSAKendrick0002.py
+# =============================================================================
+
 
 
 def plot_douglas(archive_name, num, start_at, stop, step, titles, measures):

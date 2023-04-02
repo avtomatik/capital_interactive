@@ -10,7 +10,7 @@ from lib.collect import stockpile_usa_bea
 from lib.plot import plot_approx_linear_log
 
 
-def main():
+def approximation_linear_log() -> None:
     """
     Project: Log-Linear Approximation
 
@@ -37,4 +37,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    approximation_linear_log()

@@ -10,7 +10,7 @@ from lib.collect import stockpile_usa_bea
 from lib.plot import plot_approx_linear
 
 
-def main():
+def approximation_linear() -> None:
     """
     Project: Linear Approximation
 
@@ -29,4 +29,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    approximation_linear()

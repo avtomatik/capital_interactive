@@ -8,47 +8,12 @@ Created on Sun Mar 26 02:40:19 2023
 Subproject I. Approximation
 """
 
-from lib.collect import stockpile_usa_bea, stockpile_usa_mcconnel
-from lib.plot import plot_approx_linear, plot_approx_linear_log
+from lib.collect import stockpile_usa_mcconnel
 from lib.tools import (calculate_power_function_fit_params_a,
                        calculate_power_function_fit_params_b,
                        calculate_power_function_fit_params_c)
-
-
-def linear_fit() -> None:
-    """
-    'plot_approx_linear': Linear Approximation,
-    'plot_approx_linear_log': Log-Linear Approximation
-
-    Returns
-    -------
-    None
-        DESCRIPTION.
-
-    """
-    SERIES_IDS = {
-        'A191RX': 'https://apps.bea.gov/national/Release/TXT/NipaDataA.txt',
-        'A191RC': 'https://apps.bea.gov/national/Release/TXT/NipaDataA.txt',
-        'A006RC': 'https://apps.bea.gov/national/Release/TXT/NipaDataA.txt',
-        'A191RC': 'https://apps.bea.gov/national/Release/TXT/NipaDataA.txt'
-    }
-    stockpile_usa_bea(SERIES_IDS).dropna(axis=0).pipe(plot_approx_linear)
-
-    SERIES_IDS = {
-        'A191RX': 'https://apps.bea.gov/national/Release/TXT/NipaDataA.txt',
-        'A191RC': 'https://apps.bea.gov/national/Release/TXT/NipaDataA.txt',
-        'kcptotl1es00': 'https://apps.bea.gov/national/FixedAssets/Release/TXT/FixedAssets.txt',
-        'A032RC': 'https://apps.bea.gov/national/Release/TXT/NipaDataA.txt'
-    }
-    stockpile_usa_bea(SERIES_IDS).dropna(axis=0).pipe(plot_approx_linear_log)
-
-    SERIES_IDS = {
-        'A191RX': 'https://apps.bea.gov/national/Release/TXT/NipaDataA.txt',
-        'A191RC': 'https://apps.bea.gov/national/Release/TXT/NipaDataA.txt',
-        'kcptotl1es00': 'https://apps.bea.gov/national/FixedAssets/Release/TXT/FixedAssets.txt',
-        'A191RC': 'https://apps.bea.gov/national/Release/TXT/NipaDataA.txt'
-    }
-    stockpile_usa_bea(SERIES_IDS).dropna(axis=0).pipe(plot_approx_linear_log)
+from linear import approximation_linear
+from linear_log import approximation_linear_log
 
 
 def power_function_fit() -> None:
@@ -89,5 +54,12 @@ def power_function_fit() -> None:
 
 
 if __name__ == '__main__':
-    linear_fit()
+    # =========================================================================
+    # 'plot_approx_linear': Linear Approximation
+    # =========================================================================
+    approximation_linear()
+    # =========================================================================
+    # 'plot_approx_linear_log': Log-Linear Approximation
+    # =========================================================================
+    approximation_linear_log()
     power_function_fit()
