@@ -8,12 +8,13 @@ Created on Sun Mar 26 02:40:19 2023
 Subproject I. Approximation
 """
 
-from lib.collect import stockpile_usa_mcconnel
-from lib.tools import (calculate_power_function_fit_params_a,
-                       calculate_power_function_fit_params_b,
-                       calculate_power_function_fit_params_c)
 from linear import approximation_linear
 from linear_log import approximation_linear_log
+
+from thesis.src.lib.collect import stockpile_usa_mcconnel
+from thesis.src.lib.tools import (calculate_power_function_fit_params_a,
+                                  calculate_power_function_fit_params_b,
+                                  calculate_power_function_fit_params_c)
 
 
 def power_function_fit() -> None:

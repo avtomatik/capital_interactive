@@ -14,7 +14,7 @@ Subproject VII. Lash-Up Spline
 # =============================================================================
 # Fixed Assets Turnover
 # =============================================================================
-df = stockpile_cobb_douglas().pipe(transform_cobb_douglas,
+df = combine_cobb_douglas().pipe(transform_cobb_douglas,
                                    year_base=1899)[0].iloc[:, [6]]
 # =============================================================================
 # Option 1

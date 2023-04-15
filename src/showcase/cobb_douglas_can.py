@@ -56,7 +56,7 @@ ARCHIVE_IDS = {
     # =========================================================================
     'v65201809': 36100434,
 }
-df = construct_can(ARCHIVE_IDS)
+df = combine_can(ARCHIVE_IDS)
 plot_cobb_douglas(
     *df.pipe(transform_cobb_douglas, year_base=2007),
     MAP_FIG

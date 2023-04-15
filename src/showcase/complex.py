@@ -8,7 +8,7 @@ Created on Sun Mar 26 03:16:06 2023
 Subproject VIII. Complex
 """
 
-df = stockpile_cobb_douglas().pipe(transform_cobb_douglas,
+df = combine_cobb_douglas().pipe(transform_cobb_douglas,
                                    year_base=1899).iloc[:, range(5)]
 
 for col in df.columns:

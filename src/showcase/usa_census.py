@@ -29,13 +29,13 @@ YEAR_BASE = 1899
 df = stockpile_usa_hist(SERIES_IDS)
 df.div(df.loc[YEAR_BASE, :]).mul(100).pipe(plot_uscb_manufacturing, YEAR_BASE)
 
-collect_uscb_cap().pipe(plot_uscb_cap)
+combine_uscb_cap().pipe(plot_uscb_cap)
 
-collect_uscb_cap_deflator().pipe(
+combine_uscb_cap_deflator().pipe(
     transform_mean, name="uscb_fused"
 ).pipe(plot_uscb_cap_deflator)
 
-plot_uscb_metals(*collect_uscb_metals())
+plot_uscb_metals(*combine_uscb_metals())
 
 # =============================================================================
 # Census Manufacturing Series
@@ -82,11 +82,11 @@ stockpile_usa_hist(SERIES_IDS).pipe(
     transform_sum, name="C0089"
 ).pipe(plot_uscb_immigration)
 
-collect_uscb_unemployment_hours_worked().pipe(
+combine_uscb_unemployment_hours_worked().pipe(
     plot_uscb_unemployment_hours_worked
 )
 
-collect_uscb_employment_conflicts().pipe(plot_uscb_employment_conflicts)
+combine_uscb_employment_conflicts().pipe(plot_uscb_employment_conflicts)
 
 SERIES_IDS = {
     # =========================================================================
@@ -121,7 +121,7 @@ SERIES_IDS = {
 }
 stockpile_usa_hist(SERIES_IDS).pipe(plot_uscb_trade_gold_silver)
 
-collect_uscb_trade_by_countries().pipe(plot_uscb_trade_by_countries)
+combine_uscb_trade_by_countries().pipe(plot_uscb_trade_by_countries)
 
 SERIES_IDS = {
     # =========================================================================

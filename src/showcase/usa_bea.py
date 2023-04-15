@@ -8,30 +8,61 @@ Created on Sun Mar 26 03:18:46 2023
 Subproject IX. USA BEA
 """
 
-df = collect_usa_general()
+
+from thesis.src.lib.combine import (combine_usa_d, combine_usa_general,
+                                    combine_usa_investment,
+                                    combine_usa_investment_manufacturing,
+                                    combine_usa_kurenkov,
+                                    combine_usa_manufacturing_money)
+from thesis.src.lib.plot import (plot_d, plot_e, plot_investment,
+                                 plot_investment_manufacturing,
+                                 plot_manufacturing_money, plot_usa_kurenkov)
+from thesis.src.lib.transform import (transform_d, transform_e,
+                                      transform_investment,
+                                      transform_investment_manufacturing,
+                                      transform_usa_manufacturing_money)
+
 # =============================================================================
 # Project: Initial Version Dated: 05 October 2012
 # =============================================================================
-df.pipe(transform_investment_manufacturing).pipe(plot_investment_manufacturing)
+combine_usa_investment_manufacturing().pipe(
+    transform_investment_manufacturing
+).pipe(
+    plot_investment_manufacturing
+)
 # =============================================================================
 # Project: Initial Version Dated: 23 November 2012
 # =============================================================================
-df.pipe(transform_investment).pipe(plot_investment)
+combine_usa_investment().pipe(transform_investment).pipe(plot_investment)
 # =============================================================================
 # Project: Initial Version Dated: 16 June 2013
 # =============================================================================
-df.pipe(transform_manufacturing_money).pipe(plot_manufacturing_money)
+combine_usa_manufacturing_money().pipe(
+    transform_usa_manufacturing_money
+).pipe(
+    plot_manufacturing_money
+)
 # =============================================================================
 # Project: Initial Version Dated: 15 June 2015
 # =============================================================================
-df.pipe(transform_d).pipe(plot_d)
+plot_d(*combine_usa_d().pipe(transform_d))
 # =============================================================================
 # Project: Initial Version Dated: 17 February 2013
 # =============================================================================
-df_e_a, df_e_b = df.pipe(transform_e)
-df_e_a.pipe(plot_e)
-df_e_b.pipe(plot_e)
+for _df in combine_usa_e().pipe(transform_e):
+    _df.pipe(plot_e)
 # =============================================================================
 # Project: BEA Data Compared with Kurenkov Yu.V. Data
 # =============================================================================
-plot_kurenkov(df.pipe(combine_kurenkov))
+FILE_NAME = 'dataset_usa_reference_ru_kurenkov_yu_v.csv'
+COLUMNS_TO_TEST = [
+    ['A191RX', 'AIPMA_SA_IX'],
+    ['bea_labor_mfg'],
+    ['k1n31gd1es00'],
+    ['CAPUTL.B50001.A']
+]
+
+df_control = read_temporary(FILE_NAME)
+df_test = combine_usa_kurenkov()
+
+plot_usa_kurenkov(df_control, df_test, COLUMNS_TO_TEST)

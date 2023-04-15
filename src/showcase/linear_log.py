@@ -6,8 +6,8 @@ Created on Sat Jan 28 16:01:47 2023
 @author: green-machine
 """
 
-from lib.collect import stockpile_usa_bea
-from lib.plot import plot_approx_linear_log
+from thesis.src.lib.collect import stockpile_usa_bea
+from thesis.src.lib.plot import plot_approx_linear_log
 
 
 def approximation_linear_log() -> None:

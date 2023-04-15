@@ -29,8 +29,8 @@ Subproject II. Capital
     'λ1': -0.000413347827690062,
     'λ2': 1.18883834418742,
 }
-df_a, df_b = collect_usa_investment_turnover_bls()
-df_c, df_d = collect_usa_investment_turnover()
+df_a, df_b = combine_usa_investment_turnover_bls()
+df_c, df_d = combine_usa_investment_turnover()
 df_a.pipe(plot_model_capital, year_base=2005)
 df_c.pipe(plot_model_capital, year_base=2012)
 # =============================================================================
