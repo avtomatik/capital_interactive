@@ -9,7 +9,7 @@ Subproject IX. USA BEA
 """
 
 
-from thesis.src.lib.combine import (combine_usa_d, combine_usa_general,
+from thesis.src.lib.combine import (combine_usa_d, combine_usa_e,
                                     combine_usa_investment,
                                     combine_usa_investment_manufacturing,
                                     combine_usa_kurenkov,
@@ -17,6 +17,7 @@ from thesis.src.lib.combine import (combine_usa_d, combine_usa_general,
 from thesis.src.lib.plot import (plot_d, plot_e, plot_investment,
                                  plot_investment_manufacturing,
                                  plot_manufacturing_money, plot_usa_kurenkov)
+from thesis.src.lib.read import read_temporary
 from thesis.src.lib.transform import (transform_d, transform_e,
                                       transform_investment,
                                       transform_investment_manufacturing,

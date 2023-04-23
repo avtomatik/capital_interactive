@@ -13,7 +13,7 @@ SERIES_IDS = {
     'A191RC': 'https://apps.bea.gov/national/Release/TXT/NipaDataA.txt',
     'A032RC': 'https://apps.bea.gov/national/Release/TXT/NipaDataA.txt'
 }
-stockpile_usa_bea(SERIES_IDS).dropna(axis=0).pipe(plot_elasticity)
+plot_elasticity(*stockpile_usa_bea(SERIES_IDS).dropna(axis=0).pipe(transform_elasticity))
 
 SERIES_IDS = {
     'A032RC': 'https://apps.bea.gov/national/Release/TXT/NipaDataA.txt'

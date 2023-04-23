@@ -25,7 +25,7 @@ Subproject III. Capital Interactive
 # capital_retirement.yaml
 # =============================================================================
 
-df = collect_capital_combined_archived()
+df = combine_capital_combined_archived()
 MAP = {
     # =========================================================================
     # Nominal Product
