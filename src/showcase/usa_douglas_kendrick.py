@@ -9,6 +9,16 @@ Subproject XII. USA Douglas & Kendrick
 """
 
 
+from matplotlib import pyplot as plt
+
+from thesis.src.common import get_fig_map_us_ma
+from thesis.src.lib.plot import plot_cobb_douglas
+from thesis.src.lib.pull import pull_series_ids_description
+from thesis.src.lib.read import read_usa_hist
+from thesis.src.lib.stockpile import stockpile_usa_hist
+from thesis.src.lib.transform import transform_cobb_douglas
+
+
 def plotSpecialLabels(archive_id, num, start, stop, step, title, measure, label):
     plt.figure(num)
     for _ in range(start, stop, step):
@@ -195,8 +205,9 @@ plt.show()
 # =============================================================================
 # Douglas Production Function
 # =============================================================================
+YEAR_BASE = 1899
 plot_cobb_douglas(
-    *stockpile_usa_hist(SERIES_IDS).pipe(transform_cobb_douglas, year_base=1899), MAP_FIG)
+    *stockpile_usa_hist(SERIES_IDS).pipe(transform_cobb_douglas, year_base=YEAR_BASE), get_fig_map_us_ma(YEAR_BASE))
 
 # =============================================================================
 # Kendrick Macroeconomic Series
@@ -394,21 +405,15 @@ plot_douglas(
 # =========================================================================
 # Cobb--Douglas Algorithm as per C.W. Cobb, P.H. Douglas. A Theory of Production, 1928 & P.H. Douglas. The Theory of Wages, 1934;
 # =========================================================================
-MAP_FIG = {
-    'fg_a': 'Chart 15 Relative Increase in Capital, Labor, and Physical Product in Manufacturing Industries of Massachussets, {}$-${} ({}=100)',
-    'fg_b': 'Chart 16 Theoretical and Actual Curves of Production, Massachusetts, {}$-${} ({}=100)',
-    'fg_c': 'Chart III Percentage Deviations of $P$ and $P\'$ from Their Trend Lines, Massachusetts\nTrend Lines = 3 Year Moving Average',
-    'fg_d': 'Chart 17 The Percentage Deviations of the Computed Product ($P\'$) from the Actual Product ($P$) in Massachusetts Manufacturing, {}$-${}',
-    'fg_e': 'Chart V Relative Final Productivities of Labor and Capital',
-    'year_base': 1899,
-}
+YEAR_BASE = 1899
+MAP_FIG_US_MA = get_fig_map_us_ma(YEAR_BASE)
 SERIES_IDS = {
     'DT19AS03': 'dataset_douglas.zip',
     'DT19AS02': 'dataset_douglas.zip',
     'DT19AS01': 'dataset_douglas.zip'
 }
 plot_cobb_douglas(
-    *stockpile_usa_hist(SERIES_IDS).pipe(transform_cobb_douglas, year_base=1899), MAP_FIG)
+    *stockpile_usa_hist(SERIES_IDS).pipe(transform_cobb_douglas, year_base=YEAR_BASE), MAP_FIG_US_MA)
 # =========================================================================
 # Kendrick Macroeconomic Series
 # =========================================================================
